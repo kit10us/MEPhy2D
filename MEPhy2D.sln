@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MEPhy2D", "MEPhy2D.vcxproj", "{DE9AAC2F-471D-42A5-8F55-015A7AB4FEC4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1} = {0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E21F9263-B29C-4323-B898-71B904F2D823}"
 EndProject
@@ -11,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01Test03 - Bounce", "01test
 	ProjectSection(ProjectDependencies) = postProject
 		{DE9AAC2F-471D-42A5-8F55-015A7AB4FEC4} = {DE9AAC2F-471D-42A5-8F55-015A7AB4FEC4}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MercuryEngine", "..\ws\MercuryEngine\MercuryEngine.vcxproj", "{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +37,12 @@ Global
 		{2A0FA694-9858-4E75-BD41-4E67D136A2CC}.Release|x64.ActiveCfg = Release|Win32
 		{2A0FA694-9858-4E75-BD41-4E67D136A2CC}.Release|x86.ActiveCfg = Release|Win32
 		{2A0FA694-9858-4E75-BD41-4E67D136A2CC}.Release|x86.Build.0 = Release|Win32
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}.Debug|x64.ActiveCfg = Debug|Win32
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}.Debug|x86.ActiveCfg = Debug|Win32
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}.Debug|x86.Build.0 = Debug|Win32
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}.Release|x64.ActiveCfg = Release|Win32
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}.Release|x86.ActiveCfg = Release|Win32
+		{0E2AF65A-1CD1-4D9C-A142-CF2F4892AFF1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

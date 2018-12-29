@@ -1,17 +1,17 @@
 // Copyright (c) 2002 - 2018, Evil Quail LLC
 // All Rights Reserved
 
-#include <mephy2d/SceneComponent2D.h>
+#include <mephy2d/SceneComponent.h>
 #include <mephy2d/Entity.h>
 
 using namespace mephy2d;
 
-MEPHY2D_API char* SceneComponent::Name()
+char* SceneComponent::Name()
 {
 	return "MEPhy2DSceneComponent";
 }
 
-MEPHY2D_API SceneComponent::SceneComponent( me::os::IOS * os )
+SceneComponent::SceneComponent( me::os::IOS * os )
 	: me::phy::PhySceneComponent( os, "MEPhy2DSceneComponent" )
 {
 }

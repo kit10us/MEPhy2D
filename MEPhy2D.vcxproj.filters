@@ -11,22 +11,28 @@
     <ClCompile Include="mephy2d\Entity.cpp">
       <Filter>mephy2d</Filter>
     </ClCompile>
-    <ClCompile Include="mephy2d\GameComponent2D.cpp">
+    <ClCompile Include="mephy2d\SceneManagerComponent.cpp">
       <Filter>mephy2d</Filter>
     </ClCompile>
-    <ClCompile Include="mephy2d\SceneComponent2D.cpp">
+    <ClCompile Include="mephy2d\SceneComponent.cpp">
+      <Filter>mephy2d</Filter>
+    </ClCompile>
+    <ClCompile Include="mephy2d\GameComponent.cpp">
       <Filter>mephy2d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MEPhy2D.h" />
-    <ClInclude Include="mephy2d\SceneComponent2D.h">
-      <Filter>mephy2d</Filter>
-    </ClInclude>
     <ClInclude Include="mephy2d\Entity.h">
       <Filter>mephy2d</Filter>
     </ClInclude>
-    <ClInclude Include="mephy2d\GameComponent2D.h">
+    <ClInclude Include="mephy2d\SceneManagerComponent.h">
+      <Filter>mephy2d</Filter>
+    </ClInclude>
+    <ClInclude Include="mephy2d\SceneComponent.h">
+      <Filter>mephy2d</Filter>
+    </ClInclude>
+    <ClInclude Include="mephy2d\GameComponent.h">
       <Filter>mephy2d</Filter>
     </ClInclude>
   </ItemGroup>

@@ -12,12 +12,12 @@ namespace mephy2d
 	class SceneComponent : public me::phy::PhySceneComponent
 	{
 	public:
-		MEPHY2D_API static char* Name();
+		static char* Name();
 
-		MEPHY2D_API SceneComponent( me::os::IOS * os );
+		SceneComponent( me::os::IOS * os );
 		~SceneComponent();
 
-		MEPHY2D_API me::phy::Entity* AddEntity( me::object::Object * object );
+		me::phy::Entity* AddEntity( me::object::Object * object );
 
 	public: // ISceneComponent...
 		void OnEarlyUpdate( const me::UpdateParams & params ) override;

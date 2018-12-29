@@ -14,7 +14,6 @@
 using namespace me;
 using namespace render;
 using namespace scene;
-using namespace object;
 
 MainScene::MainScene( me::game::Game * gameInstance )
 	:Scene( gameInstance, "main" )
@@ -27,14 +26,14 @@ void MainScene::OnStart()
 	Effect::ptr textured3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectTextured.effect" ) );
 
 	// Add an object to act as a camera...
-	Object * camera = GetObjectAllocator()->NewObject( "camera" );
+	object::Object * camera = GetObjectAllocator()->NewObject( "camera" );
 	camera->GetFrame().SetPosition( unify::V3< float >( 0, 5, -17 ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ) );
 
 	// Add a camera component to the camera object
-	auto * cameraComponent = new component::CameraComponent();
+	auto * cameraComponent = new object::component::CameraComponent();
 	cameraComponent->SetProjection( unify::MatrixPerspectiveFovLH( 3.141592653589f / 4.0f, 800 / 600, 1, 1000 ) );
-	camera->AddComponent( component::IObjectComponent::ptr( cameraComponent ) );
+	camera->AddComponent( object::component::IObjectComponent::ptr( cameraComponent ) );
 
 	auto createObject = [&]( float x, float y, float z, Geometry::ptr geometry )->me::object::Object*
 	{
@@ -108,7 +107,7 @@ void MainScene::OnStart()
 void MainScene::OnUpdate( const UpdateParams & params )
 {
 	// Use of camera controls to simplify camera movement...
-	Object * camera = FindObject( "camera" );
+	object::Object * camera = FindObject( "camera" );
 	
 	camera->GetFrame().Orbit( unify::V3< float >( 0, 0, 0 ), unify::V2< float >( 1, 0 ), unify::AngleInRadians( params.GetDelta().GetSeconds() ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ), unify::V3< float >( 0, 1, 0 ) );

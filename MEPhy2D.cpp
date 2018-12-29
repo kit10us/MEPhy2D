@@ -2,7 +2,7 @@
 //
 
 #include <MEPhy2D.h>
-#include <mephy2d/GameComponent2D.h>
+#include <mephy2d/GameComponent.h>
 #include <me/game/IGame.h>
 #include <memory.h>
 
@@ -16,7 +16,7 @@ extern "C" MEPHY2D_API bool MELoader( me::game::IGame * gameInstance, const qxml
 MEPHY2D_API bool MELoader( me::game::IGame * gameInstance, const qxml::Element * element )
 {
 	mephy2d::GameComponent * component = new mephy2d::GameComponent();
-	gameInstance->AddComponent( me::game::IGameComponent::ptr( component, Deleter2D ) );
+	gameInstance->AddComponent( me::game::component::IGameComponent::ptr( component, Deleter2D ) );
 
 	return true;
 }

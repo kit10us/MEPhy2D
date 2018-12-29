@@ -90,14 +90,16 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MEPhy2D.cpp" />
     <ClCompile Include="mephy2d\Entity.cpp" />
-    <ClCompile Include="mephy2d\GameComponent2D.cpp" />
-    <ClCompile Include="mephy2d\SceneComponent2D.cpp" />
+    <ClCompile Include="mephy2d\GameComponent.cpp" />
+    <ClCompile Include="mephy2d\SceneComponent.cpp" />
+    <ClCompile Include="mephy2d\SceneManagerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MEPhy2D.h" />
     <ClInclude Include="mephy2d\Entity.h" />
-    <ClInclude Include="mephy2d\GameComponent2D.h" />
-    <ClInclude Include="mephy2d\SceneComponent2D.h" />
+    <ClInclude Include="mephy2d\GameComponent.h" />
+    <ClInclude Include="mephy2d\SceneComponent.h" />
+    <ClInclude Include="mephy2d\SceneManagerComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
