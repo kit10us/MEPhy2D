@@ -19,7 +19,7 @@ class MyGame : public game::Game
 {
 public:
 	MyGame()
-		: Game( "Main", unify::Path( "mephy2d.xml" ) )
+		: Game( "Main", unify::Path( "mephy2d.me_setup" ) )
 	{
 	}
 

@@ -7,9 +7,8 @@
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
-
 #include <me/phy/PhySceneComponent.h>
+#include <unify/Parameters.h>
 
 using namespace me;
 using namespace render;
@@ -22,8 +21,8 @@ MainScene::MainScene( me::game::Game * gameInstance )
 
 void MainScene::OnStart()
 {
-	Effect::ptr color3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectColor.effect" ) );
-	Effect::ptr textured3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectTextured.effect" ) );
+	Effect::ptr color3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectColor.me_effect" ) );
+	Effect::ptr textured3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectTextured.me_effect" ) );
 
 	// Add an object to act as a camera...
 	object::Object * camera = GetObjectAllocator()->NewObject( "camera" );
@@ -50,29 +49,46 @@ void MainScene::OnStart()
 	Geometry::ptr meshCube;
 	Geometry::ptr meshSphere;
 
+	auto shapeCreator = GetManager< Geometry >()->GetFactory( "me_shape" );
+
 	{
-		sg::CubeParameters cubeParameters;
-		cubeParameters.SetEffect( color3DEffect );
-		cubeParameters.SetSize( unify::Size3< float >( 10, 1, 10 ) );
-		cubeParameters.SetDiffuseFaces( unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() );
-		meshGround = sg::CreateShape( GetOS()->GetRenderer( 0 ), cubeParameters );
+		using namespace unify;
+		Parameters parameters{
+			{ "type", (std::string)"box" },
+			{ "effect", color3DEffect },
+			{ "size3", Size3< float >( 10.0f, 1.0f, 10.0f ) },
+			{ "diffuses", std::vector< Color >{
+			ColorRed(), ColorGreen(), ColorBlue(), ColorYellow(), ColorCyan(), ColorMagenta()
+		} },
+		};
+
+		meshGround = shapeCreator->Produce( &parameters );
 	}
 
 	{
-		sg::CubeParameters cubeParameters;
-		cubeParameters.SetEffect( color3DEffect );
-		cubeParameters.SetSize( unify::Size3< float >( 1, 1, 1 ) );
-		cubeParameters.SetDiffuseFaces( unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() );
-		meshCube = sg::CreateShape( GetOS()->GetRenderer( 0 ), cubeParameters );
+		using namespace unify;
+		Parameters parameters{
+			{ "type", (std::string)"box" },
+			{ "effect", color3DEffect },
+			{ "size3", Size3< float >( 1.0f, 1.0f, 1.0f ) },
+			{ "diffuses", std::vector< Color >{
+			ColorRed(), ColorGreen(), ColorBlue(), ColorYellow(), ColorCyan(), ColorMagenta()
+		} },
+		};
+
+		meshCube = shapeCreator->Produce( &parameters );
 	}
 
 	{
+		using namespace unify;
+		Parameters parameters{
+			{ "type", (std::string)"sphere" },
+			{ "effect", color3DEffect },
+			{ "radius", 0.5f },
+			{ "diffuse", ColorRed()
+			} };
 
-		sg::SphereParameters sphereParameters;
-		sphereParameters.SetEffect( color3DEffect );
-		sphereParameters.SetRadius( 0.5f );
-		sphereParameters.SetDiffuse( unify::ColorRed() );
-		meshSphere = sg::CreateShape( GetOS()->GetRenderer( 0 ), sphereParameters );
+		meshSphere = shapeCreator->Produce( &parameters );
 	}
 
 	// Add objects...
@@ -109,6 +125,7 @@ void MainScene::OnUpdate( const UpdateParams & params )
 	// Use of camera controls to simplify camera movement...
 	object::Object * camera = FindObject( "camera" );
 	
+
 	camera->GetFrame().Orbit( unify::V3< float >( 0, 0, 0 ), unify::V2< float >( 1, 0 ), unify::AngleInRadians( params.GetDelta().GetSeconds() ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ), unify::V3< float >( 0, 1, 0 ) );
 }
