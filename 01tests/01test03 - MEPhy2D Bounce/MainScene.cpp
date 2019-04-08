@@ -62,7 +62,7 @@ void MainScene::OnStart()
 		} },
 		};
 
-		meshGround = shapeCreator->Produce( &parameters );
+		meshGround = shapeCreator->Produce( parameters );
 	}
 
 	{
@@ -76,7 +76,7 @@ void MainScene::OnStart()
 		} },
 		};
 
-		meshCube = shapeCreator->Produce( &parameters );
+		meshCube = shapeCreator->Produce( parameters );
 	}
 
 	{
@@ -88,7 +88,7 @@ void MainScene::OnStart()
 			{ "diffuse", ColorRed()
 			} };
 
-		meshSphere = shapeCreator->Produce( &parameters );
+		meshSphere = shapeCreator->Produce( parameters );
 	}
 
 	// Add objects...
