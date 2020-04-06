@@ -4,8 +4,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <IntDir>..\..\intermediate\$(DefaultPlatformToolset)_$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>..\..\output\$(DefaultPlatformToolset)_$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)intermediate\$(DefaultPlatformToolset)_$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)output\$(DefaultPlatformToolset)_$(Configuration)\$(ProjectName)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
