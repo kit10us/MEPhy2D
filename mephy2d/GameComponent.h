@@ -9,7 +9,7 @@ namespace mephy2d
 	class GameComponent : public me::game::component::GameComponent
 	{
 	public:
-		/*MEPHYSICS_API*/ static char* Name();
+		/*MEPHYSICS_API*/ static const char* Name();
 
 		GameComponent();
 		~GameComponent();

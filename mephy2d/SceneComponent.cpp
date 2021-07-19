@@ -6,7 +6,7 @@
 
 using namespace mephy2d;
 
-char* SceneComponent::Name()
+const char* SceneComponent::Name()
 {
 	return "MEPhy2DSceneComponent";
 }

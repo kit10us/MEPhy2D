@@ -8,7 +8,7 @@
 
 using namespace mephy2d;
 
-char* SceneManagerComponent::Name()
+const char* SceneManagerComponent::Name()
 {
 	return "MEPhy2DSceneManagerComponent";
 }

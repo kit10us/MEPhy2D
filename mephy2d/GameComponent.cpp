@@ -6,7 +6,7 @@
 
 using namespace mephy2d;
 
-char* GameComponent::Name()
+const char* GameComponent::Name()
 {
 	return "MEPhy2D";
 }

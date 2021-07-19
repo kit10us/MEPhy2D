@@ -12,7 +12,7 @@ namespace mephy2d
 	class SceneComponent : public me::phy::PhySceneComponent
 	{
 	public:
-		static char* Name();
+		static const char* Name();
 
 		SceneComponent( me::os::IOS * os );
 		~SceneComponent();

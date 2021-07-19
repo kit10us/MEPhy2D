@@ -15,7 +15,7 @@ namespace mephy2d
 	class SceneManagerComponent : public me::scene::component::SceneManagerComponent
 	{
 	public:
-		static char* Name();
+		static const char* Name();
 
 		SceneManagerComponent();
 		~SceneManagerComponent();
