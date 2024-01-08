@@ -15,7 +15,7 @@ using namespace render;
 using namespace scene;
 
 MainScene::MainScene( me::game::Game * gameInstance )
-	:Scene( gameInstance, "main" )
+	:Scene( gameInstance, "Main" )
 {	
 }
 
