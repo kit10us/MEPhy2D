@@ -9,11 +9,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\..\..\unify;..\..\..\qxml;..\..\..\qjson;..\..\..\ResourceManager;..\..\..\MercuryEngine;..\..\..\MEWinMain;..\..\..\MEWindowsOS</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\..\unify;..\..\..\qxml;..\..\..\qjson;..\..\..\ResourceManager;..\..\..\MercuryEngine;..\..\..\MEWinMain;..\..\..\MEWindowsOS;..\..\..\kitlogger</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\..\..\lib\$(DefaultPlatformToolset)_$(Configuration);%AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\lib\$(Platform)\$(Configuration);%AdditionalLibraryDirectories);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />
