@@ -21,8 +21,8 @@ MainScene::MainScene( me::game::Game * gameInstance )
 
 void MainScene::OnStart()
 {
-	Effect::ptr color3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectColor.me_effect" ) );
-	Effect::ptr textured3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectTextured.me_effect" ) );
+	Effect::ptr color3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectColor.me_effect" ) )();
+	Effect::ptr textured3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectTextured.me_effect" ) )();
 
 	// Add an object to act as a camera...
 	object::Object * camera = GetObjectAllocator()->NewObject( "camera" );
