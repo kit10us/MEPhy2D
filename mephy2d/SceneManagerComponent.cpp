@@ -24,7 +24,7 @@ SceneManagerComponent::~SceneManagerComponent()
 
 me::scene::component::ISceneComponent::ptr SceneManagerComponent::CreateSceneComponent( std::string type )
 {
-	if ( unify::string::StringIs( type, "MEPhy2DSceneComponent" ) )
+	if ( unify::String::StringIs( type, "MEPhy2DSceneComponent" ) )
 	{
 		return me::scene::component::ISceneComponent::ptr{ new SceneComponent( GetSceneManager()->GetGame()->GetOS() ) }; 
 	}
