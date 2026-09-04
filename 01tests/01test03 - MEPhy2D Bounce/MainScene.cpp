@@ -9,6 +9,7 @@
 #include <me/object/component/CameraComponent.h>
 #include <me/phy/PhySceneComponent.h>
 #include <unify/Parameters.h>
+#include <unify/Cast.h>
 
 using namespace me;
 using namespace render;
@@ -37,7 +38,7 @@ void MainScene::OnStart()
 	auto createObject = [&]( float x, float y, float z, Geometry::ptr geometry )->me::object::Object*
 	{
 		static int objectIndex = 0;
-		std::string objectName = "object " + unify::Cast< std::string >( objectIndex++ );
+		std::string objectName = "object " + *unify::ToString( objectIndex++ );
 		auto object = GetObjectAllocator()->NewObject( objectName );
 		object->GetFrame().SetPosition( unify::V3< float >( x, y, z ) );
 		AddGeometryComponent( object, geometry );
