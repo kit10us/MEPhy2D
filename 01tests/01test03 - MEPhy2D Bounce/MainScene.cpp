@@ -38,7 +38,7 @@ void MainScene::OnStart()
 	auto createObject = [&]( float x, float y, float z, Geometry::ptr geometry )->me::object::Object*
 	{
 		static int objectIndex = 0;
-		std::string objectName = "object " + *unify::ToString( objectIndex++ );
+		std::string objectName = "object " + unify::ToString( objectIndex++ );
 		auto object = GetObjectAllocator()->NewObject( objectName );
 		object->GetFrame().SetPosition( unify::V3< float >( x, y, z ) );
 		AddGeometryComponent( object, geometry );
@@ -63,7 +63,7 @@ void MainScene::OnStart()
 		} },
 		};
 
-		meshGround = shapeCreator->Produce( parameters );
+		meshGround = *shapeCreator->Produce( parameters ); // SAS TODO: result
 	}
 
 	{
@@ -77,7 +77,7 @@ void MainScene::OnStart()
 		} },
 		};
 
-		meshCube = shapeCreator->Produce( parameters );
+		meshCube = *shapeCreator->Produce( parameters ); // SAS TODO: result
 	}
 
 	{
@@ -89,7 +89,7 @@ void MainScene::OnStart()
 			{ "diffuse", ColorRed()
 			} };
 
-		meshSphere = shapeCreator->Produce( parameters );
+		meshSphere = *shapeCreator->Produce( parameters ); // SAS TODO: result
 	}
 
 	// Add objects...

@@ -27,7 +27,7 @@ me::phy::Entity* SceneComponent::AddEntity( me::object::Object * object )
 	return entity;
 }
 
-void SceneComponent::OnEarlyUpdate( const me::UpdateParams & params )
+void SceneComponent::BeforeOnUpdate( const me::UpdateParams & params )
 {
 	for( auto * entity : m_entities )
 	{
@@ -35,6 +35,6 @@ void SceneComponent::OnEarlyUpdate( const me::UpdateParams & params )
 	}
 }
 
-void SceneComponent::OnLateUpdate( const me::UpdateParams & params )
+void SceneComponent::AfterOnUpdate( const me::UpdateParams & params )
 {
 }
