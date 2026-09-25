@@ -20,7 +20,7 @@ MainScene::MainScene( me::game::Game * gameInstance )
 {	
 }
 
-void MainScene::OnStart()
+unify::Result<> MainScene::OnStart()
 {
 	Effect::ptr color3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectColor.me_effect" ) )();
 	Effect::ptr textured3DEffect = GetManager< Effect >()->Add( "color3d", unify::Path( "EffectTextured.me_effect" ) )();
@@ -119,9 +119,11 @@ void MainScene::OnStart()
 		ground->AttachEntityOn( sphere );
 		*/
 	}
+
+	return {};
 }
 
-void MainScene::OnUpdate( const UpdateParams & params )
+unify::Result<> MainScene::OnUpdate( const UpdateParams & params )
 {
 	// Use of camera controls to simplify camera movement...
 	object::Object * camera = FindObject( "camera" );
@@ -129,4 +131,5 @@ void MainScene::OnUpdate( const UpdateParams & params )
 
 	camera->GetFrame().Orbit( unify::V3< float >( 0, 0, 0 ), unify::V2< float >( 1, 0 ), unify::AngleInRadians( params.GetDelta().AsSeconds() ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ), unify::V3< float >( 0, 1, 0 ) );
+	return {};
 }

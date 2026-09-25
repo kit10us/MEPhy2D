@@ -20,8 +20,8 @@ namespace mephy2d
 		me::phy::Entity* AddEntity( me::object::Object * object );
 
 	public: // ISceneComponent...
-		void BeforeOnUpdate( const me::UpdateParams & params ) override;
-		void AfterOnUpdate( const me::UpdateParams & params ) override;
+		unify::Result<> BeforeOnUpdate( const me::UpdateParams & params ) override;
+		unify::Result<> AfterOnUpdate( const me::UpdateParams & params ) override;
 
 	private:
 		std::list< me::phy::Entity* > m_entities;

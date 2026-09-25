@@ -37,14 +37,16 @@ void Entity::AttachEntityOn( Entity * entity )
 	m_attachedEntities.push_back( entity );
 }
 
-void Entity::OnAttach( me::object::Object * object )
+unify::Result<> Entity::OnAttach( me::object::Object * object )
 {
 	m_object = object;
+	return {};
 }
 
-void Entity::OnDetach( me::object::Object * objecct )
+unify::Result<> Entity::OnDetach( me::object::Object * objecct )
 {
 	m_object = nullptr;
+	return {};
 }
 
 me::object::component::IObjectComponent::ptr Entity::Duplicate()

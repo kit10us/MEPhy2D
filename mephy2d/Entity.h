@@ -31,8 +31,8 @@ namespace mephy2d
 		void MoveTo( unify::V3< float > position );
 
 	public: // ObjectComponent...
-		void OnAttach( me::object::Object * object ) override;
-		void OnDetach( me::object::Object * objecct ) override;
+		unify::Result<> OnAttach( me::object::Object * object ) override;
+		unify::Result<> OnDetach( me::object::Object * objecct ) override;
 		me::object::component::IObjectComponent::ptr Duplicate() override;
 
 	public: // IComponent...

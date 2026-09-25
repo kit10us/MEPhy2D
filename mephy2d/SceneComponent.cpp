@@ -27,14 +27,16 @@ me::phy::Entity* SceneComponent::AddEntity( me::object::Object * object )
 	return entity;
 }
 
-void SceneComponent::BeforeOnUpdate( const me::UpdateParams & params )
+unify::Result<> SceneComponent::BeforeOnUpdate( const me::UpdateParams & params )
 {
 	for( auto * entity : m_entities )
 	{
 		entity->UpdateEntities();
 	}
+	return {};
 }
 
-void SceneComponent::AfterOnUpdate( const me::UpdateParams & params )
+unify::Result<> SceneComponent::AfterOnUpdate( const me::UpdateParams & params )
 {
+	return {};
 }

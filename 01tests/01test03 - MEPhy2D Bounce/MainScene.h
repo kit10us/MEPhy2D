@@ -12,6 +12,6 @@ class MainScene : public me::scene::Scene
 public:
 	MainScene( me::game::Game * gameInstance );
 
-	void OnStart() override;
-	void OnUpdate( const me::UpdateParams & params ) override;
+	unify::Result<> OnStart() override;
+	unify::Result<> OnUpdate( const me::UpdateParams & params ) override;
 };
